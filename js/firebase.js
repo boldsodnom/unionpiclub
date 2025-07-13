@@ -16,12 +16,13 @@ import {
 
 // 1. Firebase Config (Insert your real config below)
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "SENDER_ID",
-  appId: "APP_ID"
+  apiKey: "AIzaSyAN6glFtcpkblLO153R4voEqCq3Bkd4BvQ",
+  authDomain: "unionpiclub-core.firebaseapp.com",
+  projectId: "unionpiclub-core",
+  storageBucket: "unionpiclub-core.appspot.com",
+  messagingSenderId: "447464759147",
+  appId: "1:447464759147:web:1ea6af08abda78b33e362e",
+  measurementId: "G-E9LXZJS3MP"
 };
 
 // 2. Initialize Firebase
