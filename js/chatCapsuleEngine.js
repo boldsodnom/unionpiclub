@@ -1,4 +1,4 @@
-// chatCapsuleEngine.js — Handles Mentor Bubble Logic + Emotion Feedback
+import { submitRatingToFirestore } from './firebase.js';
 
 document.addEventListener("DOMContentLoaded", () => {
   const mentorMessages = [
@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     container.scrollTop = container.scrollHeight;
   }
 
-  // Display mentor messages with delay
   let i = 0;
   function showMentorMessages() {
     if (i < mentorMessages.length) {
@@ -71,27 +70,12 @@ document.addEventListener("DOMContentLoaded", () => {
         star.classList.add("selected");
 
         const ratingValue = star.dataset.value;
-        sendRatingToFirestore(ratingValue);
+        const capsuleId = "test_capsule_001";
+        submitRatingToFirestore(capsuleId, ratingValue);
+        alert(`Сэтгэл хөдлөлийн үнэлгээ бүртгэгдлээ: ${ratingValue} од! 🌟`);
       });
     });
   }
 
-  function sendRatingToFirestore(value) {
-    console.log(`📥 Emotion Rating submitted: ${value} stars`);
-
-    // 🔐 Firebase logic (placeholder)
-    /*
-    firebase.firestore().collection("capsule_feedback").add({
-      user_id: firebase.auth().currentUser.uid,
-      capsule_id: "test_capsule_001",
-      rating: parseInt(value),
-      timestamp: firebase.firestore.FieldValue.serverTimestamp()
-    });
-    */
-
-    alert(`Сэтгэл хөдлөлийн үнэлгээ бүртгэгдлээ: ${value} од! 🌟`);
-  }
-
-  // Start Capsule Experience
   showMentorMessages();
 });

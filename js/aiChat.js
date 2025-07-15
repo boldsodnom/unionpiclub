@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       appendMessage(text, "user");
       input.value = "";
 
-      // Temporary static Emma AI reply
+      // Static Emma AI reply for now
       setTimeout(() => {
         appendMessage("Би таныг ойлголоо 😊", "emma");
       }, 500);

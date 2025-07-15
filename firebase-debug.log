@@ -1,0 +1,32 @@
+[debug] [2025-07-13T04:36:29.890Z] ----------------------------------------------------------------------
+[debug] [2025-07-13T04:36:29.892Z] Command:       /opt/homebrew/Cellar/node/23.11.0/bin/node /opt/homebrew/bin/firebase deploy --only hosting
+[debug] [2025-07-13T04:36:29.892Z] CLI Version:   14.10.1
+[debug] [2025-07-13T04:36:29.892Z] Platform:      darwin
+[debug] [2025-07-13T04:36:29.892Z] Node Version:  v23.11.0
+[debug] [2025-07-13T04:36:29.892Z] Time:          Sun Jul 13 2025 12:36:29 GMT+0800 (Ulaanbaatar Standard Time)
+[debug] [2025-07-13T04:36:29.892Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-07-13T04:36:29.955Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-07-13T04:36:29.955Z] > authorizing via signed-in user (ariunbold.consult@gmail.com)
+[debug] [2025-07-13T04:36:29.956Z] [iam] checking project sgs-neuron-core for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-07-13T04:36:29.956Z] Checked if tokens are valid: true, expires at: 1752382522341
+[debug] [2025-07-13T04:36:29.956Z] Checked if tokens are valid: true, expires at: 1752382522341
+[debug] [2025-07-13T04:36:29.956Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/sgs-neuron-core:testIamPermissions [none]
+[debug] [2025-07-13T04:36:29.956Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/sgs-neuron-core:testIamPermissions x-goog-quota-user=projects/sgs-neuron-core
+[debug] [2025-07-13T04:36:29.956Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sgs-neuron-core:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-07-13T04:36:31.769Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/sgs-neuron-core:testIamPermissions 200
+[debug] [2025-07-13T04:36:31.770Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/sgs-neuron-core:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-07-13T04:36:31.770Z] Checked if tokens are valid: true, expires at: 1752382522341
+[debug] [2025-07-13T04:36:31.770Z] Checked if tokens are valid: true, expires at: 1752382522341
+[debug] [2025-07-13T04:36:31.770Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/sgs-neuron-core [none]
+[debug] [2025-07-13T04:36:32.682Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/sgs-neuron-core 200
+[debug] [2025-07-13T04:36:32.683Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/sgs-neuron-core {"projectId":"sgs-neuron-core","projectNumber":"260611741232","displayName":"SGS Neuron Core","name":"projects/sgs-neuron-core","resources":{"hostingSite":"sgs-neuron-core"},"state":"ACTIVE","etag":"1_01ded94f-228e-464a-add4-c64a6a84f204"}
+[info] 
+[info] === Deploying to 'sgs-neuron-core'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2025-07-13T04:36:32.690Z] Checked if tokens are valid: true, expires at: 1752382522341
+[debug] [2025-07-13T04:36:32.690Z] Checked if tokens are valid: true, expires at: 1752382522341
+[debug] [2025-07-13T04:36:32.690Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sgs-neuron-core/versions [none]
+[debug] [2025-07-13T04:36:32.690Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sgs-neuron-core/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2025-07-13T04:36:35.134Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/sgs-neuron-core/versions 200

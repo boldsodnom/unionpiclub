@@ -1,6 +1,6 @@
 // firebase.js — Firebase Auth + Firestore Setup (Modular v10+)
 
-// Firebase CDN SDK
+import { submitRatingToFirestore } from './firebase.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import {
   getAuth,

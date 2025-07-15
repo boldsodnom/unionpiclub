@@ -19,13 +19,13 @@
     </p>
   </section>
 
-   <div class="ticker-container">
-     <div class="ticker-content">
-       <span class="ticker-item yellow">📢 Pi2Day мэдээ</span>
-       <span class="ticker-item red">📢 1 Pi = 0.5 USDT</span>
-       <span class="ticker-item green">📢 SmartPi app тун удахгүй!</span>
-     </div>
-   </div>
+  <div class="ticker-container">
+    <div class="ticker-content">
+      <span class="ticker-item yellow">📢 Pi2Day мэдээ</span>
+      <span class="ticker-item red">📢 1 Pi = 0.5 USDT</span>
+      <span class="ticker-item green">📢 SmartPi app тун удахгүй!</span>
+    </div>
+  </div>
 
   <section class="access-section">
     <div class="grid-4-boxes">
@@ -39,122 +39,90 @@
 
       <div class="project-wrapper">
         <h2 class="section-title">Pi Төслүүд</h2>
-        <div class="project-card">
-          <a href="https://smartpi.app" target="_blank">
-            <img src="smartpi.png" alt="SmartPi logo" class="logo-large" />
-            <div class="hover-description">Pi хэрэглээнд суурилсан ухаалаг платформ</div>
-          </a>
-        </div>
-        <div class="project-card">
-          <a href="#">
-            <img src="upf.png" alt="UPF logo" class="logo-large" />
-            <div class="hover-description">Pi төслийн санхүүжилтийн платформ</div>
-          </a>
-        </div>
-        <div class="project-card">
-          <a href="#">
-            <img src="idea.png" alt="IdeaShop logo" class="logo-large" />
-            <div class="hover-description">Санаагаа Pi болго!</div>
-          </a>
-        </div>
-        <div class="project-card">
-          <a href="#">
-            <img src="farmine.png" alt="Farmine logo" class="logo-large" />
-            <div class="hover-description">Node түрээслэх, 1 хэрэглэгч 1 данс</div>
-          </a>
-        </div>
+        <div class="project-card"><a href="https://smartpi.app" target="_blank"><img src="smartpi.png" alt="SmartPi" class="logo-large"/><div class="hover-description">Pi хэрэглээнд суурилсан ухаалаг платформ</div></a></div>
+        <div class="project-card"><a href="#"><img src="upf.png" alt="UPF" class="logo-large"/><div class="hover-description">Pi төслийн санхүүжилтийн платформ</div></a></div>
+        <div class="project-card"><a href="#"><img src="idea.png" alt="IdeaShop" class="logo-large"/><div class="hover-description">Санаагаа Pi болго!</div></a></div>
+        <div class="project-card"><a href="#"><img src="farmine.png" alt="Farmine" class="logo-large"/><div class="hover-description">Node түрээслэх, 1 хэрэглэгч 1 данс</div></a></div>
       </div>
 
       <div class="info-box">
         <h3>Мэдээ</h3>
-        <div class="news-card">
-          <h4>📌 Pi2Day 2025</h4>
-          <p>Pi-ийн дараагийн хувьсал эхэлж байна. Шинэ AI платформ, нээлтүүд зарлагдлаа!</p>
-        </div>
-        <div class="news-card">
-          <h4>🧠 SmartPi App</h4>
-          <p>SmartPi ухаалаг платформ тун удахгүй Pi community-д зориулан нээгдэнэ.</p>
-        </div>
-        <div class="news-card">
-          <h4>🌐 UnionPiClub шинэ портал</h4>
-          <p>Шинэ UI/UX, NFT-based гишүүнчлэлтэй портал амжилттай нээгдлээ.</p>
-        </div>
+        <div class="news-card"><h4>📌 Pi2Day 2025</h4><p>Pi-ийн дараагийн хувьсал эхэлж байна.</p></div>
+        <div class="news-card"><h4>🧠 SmartPi App</h4><p>SmartPi тун удахгүй нээгдэнэ.</p></div>
+        <div class="news-card"><h4>🌐 Шинэ портал</h4><p>UnionPiClub шинэ UI/UX-тайгаар нээгдлээ.</p></div>
       </div>
 
-      <!-- 📩 Contact Form Section -->
-  <section id="contact">
-    <h2>Бидэнтэй холбогдох</h2>
-    <form id="contact-form">
-      <input name="name" placeholder="Таны нэр" required />
-      <input name="email" type="email" placeholder="Имэйл хаяг" required />
-      <textarea name="message" placeholder="Санал хүсэлт эсвэл асуултаа бичнэ үү" required></textarea>
-      <button type="submit">Илгээх</button>
-    </form>
-    <div id="response-message" style="margin-top:10px;"></div>
+      <div class="info-box">
+        <h3>Бидэнтэй холбогдох</h3>
+        <form id="contact-form">
+          <input name="name" placeholder="Таны нэр" required />
+          <input name="email" type="email" placeholder="Имэйл хаяг" required />
+          <textarea name="message" placeholder="Санал хүсэлт эсвэл асуултаа бичнэ үү" required></textarea>
+          <button type="submit">Илгээх</button>
+        </form>
+        <div id="response-message" style="margin-top:10px;"></div>
+      </div>
+
+    </div>
   </section>
 
-<!-- EmailJS Submit Logic -->
-<script>
-  document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
+  <!-- EmailJS -->
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const data = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        message: formData.get("message"),
+      };
 
-    const formData = new FormData(this);
-    const data = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    };
-
-    fetch("https://api.emailjs.com/api/v1.0/email/send", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        service_id: "service_qawf2pj",
-        template_id: "template_contactform",       // ← Та үүнийг зөв оруулсан
-        user_id: "LwPJe_lm-0oF945Fg",              // ← Энэ бол таны Public Key
-        template_params: data,
-      }),
-    })
+      fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          service_id: "service_qawf2pj",
+          template_id: "template_contactform",
+          user_id: "LwPJe_lm-0oF945Fg",
+          template_params: data,
+        }),
+      })
       .then((response) => {
         if (response.ok) {
           document.getElementById("response-message").innerText = "✅ Амжилттай илгээгдлээ!";
           document.getElementById("contact-form").reset();
         } else {
-          return response.text().then((text) => {
-            throw new Error(text);
-          });
+          return response.text().then((text) => { throw new Error(text); });
         }
       })
       .catch((error) => {
         document.getElementById("response-message").innerText = "❌ Алдаа гарлаа: " + error.message;
       });
-  });
-</script>
+    });
+  </script>
 
   <footer class="footer-end">
     <p>© 2025 UnionPiClub. Powered by SGS Neuron Core.</p>
   </footer>
 
-  <!-- AI Chat UI START -->
-<div class="chat-ai-assistant">
-  <div class="chat-toggle" onclick="toggleChat()">🤖 Тусламж</div>
-  <div class="chat-window" id="chatWindow">
-    <div class="chat-header">Emma AI</div>
-    <div class="chat-messages" id="chatMessages"></div>
-    <div class="chat-input-row">
-      <input type="text" id="chatInput" placeholder="Асуултаа бичнэ үү..." />
-      <button id="sendBtn">📩 Илгээх</button>
+  <!-- AI Chat UI -->
+  <div class="chat-ai-assistant">
+    <div class="chat-toggle" onclick="toggleChat()">🤖 Тусламж</div>
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-header">Emma AI</div>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" placeholder="Асуултаа бичнэ үү..." />
+        <button id="sendBtn">📩 Илгээх</button>
+      </div>
     </div>
   </div>
-</div>
-  <!-- AI Chat UI END -->
 
   <!-- Scripts -->
   <script src="js/aiChat.js"></script>
   <script src="js/firebase.js"></script>
   <script src="js/chatCapsuleEngine.js"></script>
   <script src="js/emotionGraph.js"></script>
+
 </body>
 </html>
