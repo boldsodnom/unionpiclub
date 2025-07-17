@@ -1,0 +1,17 @@
+# Firebase ignore
+
+node_modules
+.DS_Store
+firebase-debug.log
+*.zip
+*.tar.gz
+*.rar
+assets/ZIP/
+*.log
+npm-debug.log
+.vscode
+.idea
+.env
+__MACOSX
+UnionPi_StableGlow_ZIP_vFinal/
+UnionPi_StableGlow_ZIP_vFinal.zip
