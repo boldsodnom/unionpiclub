@@ -1,4 +1,7 @@
-// emotionGraph.js — Renders Emotion Heatmap Graph (using Chart.js)
+// emotionGraph.js — Firestore live data ашиглах хувилбар (Chart.js)
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("emotionGraph");
@@ -15,12 +18,22 @@ document.addEventListener("DOMContentLoaded", () => {
     Neutral: "#CED4DA"
   };
 
-  // 🔁 Temporary static data — Firestore холболт хожим хийхэд солигдоно
-  const emotionData = {
+  // Firebase Config (UnionPiClub)
+  const firebaseConfig = {
+    apiKey: "AIzaSyAN6glFtcpkblLO153R4voEqCq3Bkd4BvQ",
+    authDomain: "unionpiclub-core.firebaseapp.com",
+    projectId: "unionpiclub-core"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Chart init with dummy data
+  const chartData = {
     labels: emotionLabels,
     datasets: [{
       label: "Emotion Frequency",
-      data: [12, 5, 8, 15, 6],
+      data: [0, 0, 0, 0, 0],
       backgroundColor: emotionLabels.map(emotion => emotionColors[emotion]),
       borderColor: "#343a40",
       borderWidth: 1,
@@ -28,51 +41,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }]
   };
 
-  const emotionConfig = {
+  const chartConfig = {
     type: "bar",
-    data: emotionData,
+    data: chartData,
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      layout: {
-        padding: 10
-      },
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          callbacks: {
-            label: function (context) {
-              return `🧠 ${context.label}: ${context.raw} удаа`;
-            }
-          }
-        }
-      },
-      scales: {
-        y: {
-          beginAtZero: true,
-          ticks: {
-            stepSize: 1,
-            font: {
-              size: 14
-            }
-          },
-          grid: {
-            color: "rgba(255,255,255,0.1)"
-          }
-        },
-        x: {
-          ticks: {
-            font: {
-              size: 14
-            }
-          },
-          grid: {
-            display: false
-          }
-        }
-      }
+      plugins: { legend: { display: false } },
+      scales: { y: { beginAtZero: true } }
     }
   };
 
-  new Chart(ctx, emotionConfig);
+  const chartInstance = new Chart(ctx, chartConfig);
+
+  // Realtime Firestore listener
+  const colRef = collection(db, "emotion_data");
+
+  onSnapshot(colRef, (snapshot) => {
+    const counts = { Joy: 0, Sad: 0, Curious: 0, Inspired: 0, Neutral: 0 };
+
+    snapshot.forEach(doc => {
+      const emotion = doc.data().emotion;
+      if (counts[emotion] !== undefined) counts[emotion]++;
+    });
+
+    // Update chart data
+    chartInstance.data.datasets[0].data = emotionLabels.map(label => counts[label]);
+    chartInstance.update();
+  });
+
 });
