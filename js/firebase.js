@@ -1,6 +1,5 @@
 // firebase.js — Firebase Auth + Firestore Setup (Modular v10+)
 
-import { submitRatingToFirestore } from './firebase.js';
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import {
   getAuth,
@@ -14,7 +13,7 @@ import {
   serverTimestamp
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-// 1. Firebase Config (Insert your real config below)
+// Firebase Config
 const firebaseConfig = {
   apiKey: "AIzaSyAN6glFtcpkblLO153R4voEqCq3Bkd4BvQ",
   authDomain: "unionpiclub-core.firebaseapp.com",
@@ -25,12 +24,12 @@ const firebaseConfig = {
   measurementId: "G-E9LXZJS3MP"
 };
 
-// 2. Initialize Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// 3. Anonymous Sign-in
+// Anonymous Sign-in
 signInAnonymously(auth)
   .then(() => {
     console.log("✅ Anonymous sign-in successful.");
@@ -39,7 +38,7 @@ signInAnonymously(auth)
     console.error("❌ Sign-in error:", error.message);
   });
 
-// 4. Track current user
+// Track current user
 let currentUser = null;
 onAuthStateChanged(auth, (user) => {
   if (user) {
@@ -48,7 +47,7 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// 5. Firestore Submission Function
+// Firestore Submission Function
 export async function submitRatingToFirestore(capsuleId, ratingValue) {
   if (!currentUser) {
     console.warn("⚠️ User not authenticated.");
